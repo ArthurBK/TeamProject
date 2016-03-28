@@ -1,4 +1,35 @@
-/* -------------------------------------
- * CSS code specific to home page
- * (margin/padding adjustments)
- * ------------------------------------- */
+.outer {
+    border:solid 1px #000;
+    height:90vh;
+}
+
+.rightcol {
+  /* position: fixed;
+   top: 0%;
+   left: 0%; */
+   border:solid 1px green;
+   // overflow:hidden;
+}
+
+.leftcol {
+   /* border:solid 1px red;
+   position: relative;
+   top: 0%;
+   left: 50%;  */
+   border:solid 1px red;
+   overflow-y: scroll;
+   height: 90vh;
+}
+
+.nopaddingright {
+  padding-right: 0 !important;
+}
+
+.nopaddingleft {
+padding-left: 0 !important;
+}
+
+
+// .inputs {
+//   margin-top: 20px;
+// }
