@@ -29,12 +29,13 @@ $brand-color: #D23333;
 $red: #EE5F5B;
 $blue: #469AE0;
 $yellow: #FDB631;
-$orange: #E67E22;
-$green: #32B796;
+$orange: #EC5E04; // warning
+$green: #26A69A; // success
+$brown: #D7CCC8; // info
 
 // Gray scale
 $gray-darker:  lighten(#000, 13.5%); // #222
 $gray-dark:    lighten(#000, 20%);   // #333
-$gray:         lighten(#000, 33.5%); // #555
-$gray-light:   lighten(#000, 46.7%); // #777
-$gray-lighter: lighten(#000, 93.5%); // #eee
+$gray:         #EEEEEE;
+$gray-light:   #F5F5F5;
+$gray-lighter: #FAFAFA;

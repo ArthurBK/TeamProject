@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  get 'bikes/index'
+
+  resources :bikes
+  resources :bookings
+  resources :profiles
+  resources :reviews
+  resources :roles
+  resources :users
+
+  root 'bikes#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
