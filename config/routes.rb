@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'page/home'
+
   get 'bikes/index'
 
   resources :bikes
