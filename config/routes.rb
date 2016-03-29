@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'page/home'
 
-  get 'bikes/index'
+  devise_for :users
+
 
   resources :bikes
   resources :bookings

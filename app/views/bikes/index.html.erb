@@ -1,2 +1,73 @@
-<h1>Bikes#index</h1>
-<p>Find me in app/views/bikes/index.html.erb</p>
+<div class="fluid-container">
+  <div class="row nomargin">
+    <div class="col-xs-12 col-md-7 leftcol">
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br> This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br> This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br> This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br> This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br> This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+      This content Scrolls<br>This content Scrolls<br>
+    </div>
+    <div class="col-xs-12 col-md-5 rightcol nopadding">
+      <div id="map" style="width: 100%; height: 100%;"></div>
+
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+      <script type="text/javascript">
+        var myLatlng = new google.maps.LatLng(48.852937,2.364178);
+
+        var myOptions = {
+          zoom: 16,
+          center: myLatlng,
+          scrollwheel: false,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          styles: [] // TODO: replace [] by array from https://snazzymaps.com/
+        };
+
+        var map = new google.maps.Map(document.getElementById('map'), myOptions);
+        var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title: "You are here!"
+        });
+        </script>
+    </div>
+  </div>
+</div>
