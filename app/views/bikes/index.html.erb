@@ -1,50 +1,29 @@
 <div class="fluid-container">
+
   <div class="row nomargin">
     <div class="col-xs-12 col-md-7 leftcol">
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br> This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br> This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br> This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br> This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br> This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
-      This content Scrolls<br>This content Scrolls<br>
+
+      <div class="outer-listings-container row-space-2">
+        <div class="listings-container">
+          <div class="row">
+            <% @bikes.each do |bike| %>
+              <div class="col-sm-12 row-space-2 col-md-6">
+                  <div class="listing-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path bike.photo %>);">
+                    <div class="listing-card-category"><%= bike.bike_type %></div>
+                    <div class="listing-card-description">
+                      <h2><%= bike.brand %> <%= bike.model %></h2>
+                    </div>
+                    <img class="listing-card-user avatar" src="user.jpg">
+                    <a class="listing-card-link" href="#" ></a>
+                  </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
     </div>
+
     <div class="col-xs-12 col-md-5 rightcol nopadding">
       <div id="map" style="width: 100%; height: 100%;"></div>
 
@@ -68,6 +47,8 @@
           title: "You are here!"
         });
         </script>
+
     </div>
   </div>
+
 </div>
