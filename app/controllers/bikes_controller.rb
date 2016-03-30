@@ -5,7 +5,7 @@ class BikesController < ApplicationController
   end
 
   def show
-    # byebug
+    @booking = Booking.new
     @bike = Bike.find(params[:id])
   end
 
@@ -27,6 +27,6 @@ class BikesController < ApplicationController
   private
 
   def bike_params
-    params.require(:bike).permit(:model, :year, :displacement, :brand, :bike_type, :mileage, :photo, :photo_cache)
+    params.require(:bike).permit(:description, :model, :year, :displacement, :brand, :bike_type, :mileage, :photo, :photo_cache)
   end
 end

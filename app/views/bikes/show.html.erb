@@ -1,8 +1,8 @@
 
-<div class="banner banner-flat" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path @bike.photo %>');"></div>
+<div class="banner banner-bike" style="background-image: url(<%= cl_image_path @bike.photo %>);"></div>
 
 
-<div class="container">
+<div class="container-show-origin">
   <div class="row">
     <div class="col-xs-12 col-sm-3 col-offset-1 text-center flat-row">
       <h4>OWNER AVATAR</h4>
@@ -11,7 +11,7 @@
     <div class="col-xs-12 col-sm-3 col-offset-1">
       <h3><%= @bike.brand %></h3>
       <p><%= @bike.model %></p>
-       <p><%= @bike.year %></p>
+      <p><%= @bike.year %></p>
       <ul class="list-inline">
         <li style="color: gold">
           <% rate(@bike.rating).times do %>
@@ -27,29 +27,38 @@
 
     </div>
 
-    <div class="container-show col-xs-12 col-sm-4 col-offset-1 text-right">
-      <h3>Book this <%= @bike.bike_type %></h3>
-      <input action="pages#home" type="submit" class="btn btn-danger" name="id" value="Book it" style="width: 100%">
+    <div class="container-show col-xs-12 col-sm-5 col-offset-1 text-center">
+      <h3>Book this <%= @bike.bike_type %></h3><br>
+      <%= simple_form_for(Booking.new) do |f| %>
+        <%= f.error_notification %>
+
+        <%= f.input :checkin %>
+        <%= f.input :checkout %>
+        <%= f.input :bike, :as => :hidden%>
+
+        <%= f.button :submit, class: "btn btn-danger", value: "Book it", style: "width: 100%" %>
+      <% end %>
+
     </div>
   </div>
 </div>
 
 
-<div class="wrapper wrapper-show">
+<div class="wrapper-show">
   <div class="container">
     <div class="row">
 
       <div class="col-xs-12 col-sm-3 col-offset-1 text-center flat-row">
-        <h3>Specifications</h3>
-        <ul>
-          <li>Category: <%= @bike.bike_type %></li>
-          <li>Displacement: <%= @bike.displacement %></li>
-          <li>Mileage: <%= @bike.mileage %></li>
+        <h3 class="text-left">Specifications</h3><br>
+        <ul class="text-left">
+          <li> Category: <%= @bike.bike_type %></li><br>
+          <li> Displacement: <%= @bike.displacement %></li><br>
+          <li> Mileage: <%= @bike.mileage %></li><br>
         </ul>
       </div>
 
       <div class="col-xs-12 col-sm-8 col-offset-1 text-center flat-row">
-        <h3>Description</h3>
+        <h3>Description</h3><br>
         <p><%= @bike.description %></p>
       </div>
 
