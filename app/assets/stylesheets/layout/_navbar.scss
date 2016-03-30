@@ -9,6 +9,24 @@
   align-items: center;
   justify-content: space-between;
 }
+.navbar-wagon-left {
+  width: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: #ED5E02;
+  font-family: 'Kaushan Script', cursive;
+}
+.navbar-wagon-brand:hover {
+  text-decoration: none;
+}
+.navbar-wagon-brand:visited {
+  text-decoration: none;
+}
+
 
 /* Optional class to fix the navbar on top */
 .navbar-wagon-fixed {
@@ -22,6 +40,7 @@
 /* Navbar logo */
 .navbar-wagon-brand img {
   width: 50px;
+  padding-top: 10px;
 }
 
 /* Navbar right section (with form, links, button) */
