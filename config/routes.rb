@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   root 'pages#home'
 
-  resources :bikes
-  resources :bookings
-  resources :profiles
-  resources :reviews
-  resources :roles
+  resources :bikes, only: [:index, :show, :new, :create]
+ # booking_profile GET  /(.:format)
+
+  # resources :profiles do
+  #   resources :bikes, shallow: true
+  # end
+  # resources :reviews
+  # resources :roles
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   # The priority is based upon order of creation: first created -> highest priority.
