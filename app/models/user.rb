@@ -1,15 +1,17 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :trackable, :validatable
-  devise :omniauthable, omniauth_providers: [:facebook]
-  # mount_uploader :photo, PhotoUploader
-  has_one :role
+  has_one :profile, dependent: :destroy
+
   validates :email, presence: true, format: {
    with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,
    message: "invalid email"
  }
+
+  devise :database_authenticatable, :registerable,
+  :recoverable, :rememberable, :trackable, :validatable
+  devise :omniauthable, omniauth_providers: [:facebook]
+
 
    def self.find_for_facebook_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
