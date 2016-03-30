@@ -2,6 +2,11 @@ class BikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @bikes = Bike.all
+    # byebug
+    @markers = Gmaps4rails.build_markers(@bikes) do |bike, marker|
+      marker.lat bike.latitude
+      marker.lng bike.longitude
+    end
   end
 
   def show
@@ -26,6 +31,6 @@ class BikesController < ApplicationController
   private
 
   def bike_params
-    params.require(:bike).permit(:model, :year, :displacement, :brand, :bike_type, :mileage, :photo, :photo_cache)
+    params.require(:bike).permit(:model, :year, :displacement, :brand, :bike_type,:address, :mileage, :photo, :photo_cache)
   end
 end
