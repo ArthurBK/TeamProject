@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   resources :bikes, only: [:index, :show, :new, :create]
  # booking_profile GET  /(.:format)
 
-  # resources :profiles do
-  #   resources :bikes, shallow: true
-  # end
+  resources :profiles do
+    resources :bikes, shallow: true
+  end
   # resources :reviews
   # resources :roles
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
