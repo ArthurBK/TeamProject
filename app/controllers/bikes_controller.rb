@@ -5,6 +5,7 @@ class BikesController < ApplicationController
   end
 
   def show
+    # byebug
     @bike = Bike.find(params[:id])
   end
 
