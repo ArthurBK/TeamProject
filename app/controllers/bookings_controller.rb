@@ -13,10 +13,13 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @bike = Bike.find(params[:bike_id])
     @booking = Booking.new(booking_params)
+    @booking.bike_id = params[:bike_id]
+    @booking.user_id = User.find(current_user).id
     if @booking.save
       flash[:notice] = "Booking from #{@booking.checkin} to #{@booking.checkout} has been created"
-      redirect_to booking_path(@booking)
+      redirect_to bike_bookings_path(@bike)
     else
       flash[:alert] = "Booking from #{@booking.checkin} to #{@booking.checkout} has not been created"
       render :new

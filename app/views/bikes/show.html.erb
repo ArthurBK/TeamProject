@@ -31,12 +31,11 @@
       <h3>Book this <%= @bike.bike_type %></h3><br>
 
       <div id="sandbox-container">
-        <%= simple_form_for(Booking.new) do |f| %>
+        <%= simple_form_for [@bike, @booking] do |f| %>
         <%= f.error_notification %>
 
         <%= f.input :checkin, :input_html => { :placeholder => "Choose your date", :class => "form-control", :data => {:provide => "datepicker"} }%>
         <%= f.input :checkout, :input_html => { :placeholder => "Choose your date", :class => "form-control", :data => {:provide => "datepicker"} }%>
-        <%= f.input :bike, :as => :hidden%>
 
         <%= f.button :submit, class: "btn btn-danger", value: "Book it", style: "width: 100%" %>
         <% end %>
