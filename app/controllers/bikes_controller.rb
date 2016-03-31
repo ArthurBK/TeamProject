@@ -4,8 +4,6 @@ class BikesController < ApplicationController
     @bikes = Bike.all
     # @bikes = Bike.where(address: params[:city])
     if (params[:checkin] != nil && params[:checkout] != nil)
-
-
       Booking.all.each do |booking|
         if (Date.parse(params[:checkin]) >= Date.parse(booking.checkin)) && (Date.parse(params[:checkin]) <= Date.parse(booking.checkout))
           @bikes = @bikes - [Bike.find(booking.bike_id)]
