@@ -2,11 +2,12 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   resources :bikes, only: [:index, :show, :new, :create]
- # booking_profile GET  /(.:format)
+  resources :bookings
 
   resources :profiles do
     resources :bikes, shallow: true
   end
+
   # resources :reviews
   # resources :roles
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
