@@ -8,7 +8,7 @@
       <h4>OWNER AVATAR</h4>
       <p>OWNER NAME</p>
     </div>
-    <div class="col-xs-12 col-sm-3 col-offset-1">
+    <div class="col-xs-12 col-sm-4 col-offset-1">
       <h3><%= @bike.brand %></h3>
       <p><%= @bike.model %></p>
       <p><%= @bike.year %></p>
@@ -48,12 +48,12 @@
 
 
 <div class="wrapper-show">
-  <div class="container">
+  <div class="container-specs">
     <div class="row">
 
-      <div class="col-xs-12 col-sm-3 col-offset-1 text-center flat-row">
-        <h3 class="text-left">Specifications</h3><br>
-        <ul class="text-left">
+      <div class="col-xs-12 col-sm-4 col-offset-1 text-center flat-row">
+        <h3>Specifications</h3><br>
+        <ul>
           <li> Category: <%= @bike.bike_type %></li><br>
           <li> Displacement: <%= @bike.displacement %></li><br>
           <li> Mileage: <%= @bike.mileage %></li><br>

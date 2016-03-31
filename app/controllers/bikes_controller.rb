@@ -21,10 +21,6 @@ class BikesController < ApplicationController
       marker.lat bike.latitude
       marker.lng bike.longitude
     end
-
-
-
-
   end
 
   def show
@@ -38,6 +34,8 @@ class BikesController < ApplicationController
 
   def create
     @bike = Bike.new(bike_params)
+    @bike.user = current_user
+
     if @bike.save
       flash[:notice] = "Bike #{@bike.brand} #{@bike.model} has been created"
       redirect_to bike_path(@bike)

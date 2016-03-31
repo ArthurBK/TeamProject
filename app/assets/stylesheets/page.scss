@@ -1,3 +1,112 @@
 // Place all the styles related to the page controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.banner-home {
+  height: 90vh;
+  background-size: cover !important;
+  margin-top: 0px;
+  position: relative;
+  margin-bottom: 150px;
+}
+
+.wrapper-form {
+  position: absolute;
+  bottom: 40vh;
+  left: 25vh;
+}
+.banner-content > h1 {
+  color: white;
+  position: absolute;
+  left: 65vh;
+  top:10vh;
+}
+
+
+
+.card-home {
+  height: 175px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center-top;
+  color: white;
+  position: relative;
+  border-radius: 4px;
+}
+.card-category {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+.card-description {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.card-description h2 {
+  font-size: 24px;
+}
+.card-description p {
+  font-size: 13px;
+  }
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index:2;
+  background: black;
+  opacity: 0;
+}
+.card-link:hover{
+  opacity: 0.1;
+}
+
+.container-home {
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.card-margin {
+  margin-top: 20px;
+}
+
+.banner-lifestyle {
+  height: 85vh;
+  background-size: cover !important;
+  background-position: bottom;
+  margin-top: 30px;
+  position: relative;
+  margin-top: 50px;
+  border-radius: 4px;
+
+}
+
+.banner-lifestyle-content > h1 {
+  color: white;
+  position: absolute;
+  left: 30px;
+  background: black;
+  opacity:0.8;
+}
+
+.banner-lifestyle-content > p {
+  color: white;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: black;
+  opacity:0.8;
+}
+
+.img-grid {
+  border-radius: 50%;
+  box-shadow: 4px 4px grey;
+  height: 150px;
+  width: 150px;
+  background: black;
+}
+
+
