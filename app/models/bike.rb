@@ -4,6 +4,7 @@ class Bike < ActiveRecord::Base
   after_validation :geocode, if: :address_changed?
   has_many :reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  belongs_to :user
   validates :model, presence: true
   validates :year, presence: true, format: {
     with: /(19|20)\d{2}/i,

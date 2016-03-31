@@ -2,7 +2,6 @@ class BikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @bikes = Bike.all
-    # byebug
     @markers = Gmaps4rails.build_markers(@bikes) do |bike, marker|
       marker.lat bike.latitude
       marker.lng bike.longitude
@@ -20,6 +19,8 @@ class BikesController < ApplicationController
 
   def create
     @bike = Bike.new(bike_params)
+    @bike.user = current_user
+
     if @bike.save
       flash[:notice] = "Bike #{@bike.brand} #{@bike.model} has been created"
       redirect_to bike_path(@bike)

@@ -1,17 +1,65 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
+    <div class="col-sm-4 col-md-3">
 
       <div class="text-center">
-        <%= cl_image_tag @profile.photo, height: 300, width: 200, radius: 20, crop: :fit %>
-      </div>
-      <div class="text-center">
-        <h2><%= @profile.name %></h2>
-        <p><%= @profile.address %></p>
-        <p><%= @profile.phone_number %></p>
-        <p><%= @profile.user.email %></p>
+        <%= cl_image_tag @profile.photo, width: 300, radius: 20, crop: :fit, class: "img-responsive" %>
       </div>
 
+    </div>
+    <div class="col-sm-8 col-md-9">
+
+      <div class="row row-space-4">
+        <div class="text-center">
+          <h2><strong><%= @profile.name %></strong></h2>
+          <p><%= @profile.address %></p>
+          <p><%= @profile.phone_number %></p>
+          <p><%= @profile.user.email %></p>
+        </div>
+      </div>
+
+    </div>
   </div>
-</div>
+
+  <div class="row">
+    <div class="col-sm-6">
+
+      <div class="bike-list text-center">
+        <h3>Your bikes</h3>
+        <% if  current_user.bikes.present? %>
+        <% current_user.bikes.each do |bike| %>
+        <ul>
+          <li>
+            <%= link_to bike_path(bike) do %>
+            <%= cl_image_tag bike.photo, width: 60, height: 60, radius: "max", crop: :fill %> <%= bike.brand %> <%= bike.model %>
+            <% end %>
+          </li>
+        </ul>
+            <% end %>
+        <% else %>
+        <h3>You have no bikes listed</h3>
+        <%= link_to 'List a bike', new_bike_path, class: 'btn btn-success btn' %>
+        <% end %>
+      </div>
+
+    </div>
+    <div class="col-sm-6">
+      <div class="booking-list text-center">
+      <h3>Your bookings</h3>
+      <% if current_user.bookings.present? %>
+        <% current_user.bookings.each do |booking| %>
+        <ul>
+          <li>
+            <%= link_to booking_path(booking) do %>
+            <%= booking.bike.brand %> <%= booking.bike.model %> booked from <% booking.checkin %> to <% booking.checkout %>
+            <% end %>
+          </li>
+        </ul>
+        <% end %>
+        <% else %>
+        <h5>You have no bookings yet !</h5>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
