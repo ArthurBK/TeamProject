@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container container-profile">
   <div class="row">
     <div class="col-sm-6">
 
@@ -50,8 +50,8 @@
         <% current_user.bookings.each do |booking| %>
         <ul>
           <li>
-            <%= link_to booking_path(booking) do %>
-            <%= booking.bike.brand %> <%= booking.bike.model %> booked from <% booking.checkin %> to <% booking.checkout %>
+            <%= link_to bike_booking_path(booking.bike, booking) do %>
+            <strong><%= booking.bike.brand %> <%= booking.bike.model %></strong> booked from <%= booking.checkin %> to <%= booking.checkout %>
             <% end %>
           </li>
         </ul>
