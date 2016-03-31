@@ -9,8 +9,10 @@
 
       <form action="bikes#index" class="form-inline text-center form">
         <input type="text" class="form-control input-lg" placeholder="City"name="city" required>
-        <input type="date" class="form-control input-lg" placeholder="check in" name="checkin">
-        <input type="date" class="form-control input-lg" placeholder="check out" name="checkout">
+
+          <input type="text" class="form-control input-lg datebnb" data-provide="datepicker" placeholder="Check in" name="checkin">
+          <input type="text" class="form-control input-lg datebnb" data-provide="datepicker" placeholder="Check out" name="checkout">
+
         <select class="form-control input-lg" placeholder="Type" name="type">
           <option value="1">Type</option>
           <option value="2">Scooter</option>
@@ -118,3 +120,18 @@
   <a class="card-link" href="#" ></a>
 
 </div>
+
+
+<%= content_for :after_js do %>
+  <%= javascript_tag do %>
+    $(document).ready(function(){
+      $('.datebnb').datepicker({
+        format: "dd/mm/yyyy",
+        weekStart: 1,
+        autoclose: true,
+        calendarWeeks: true,
+        datesDisabled: ['03/06/2016', '03/21/2016']
+      });
+    });
+  <% end %>
+<% end %>
