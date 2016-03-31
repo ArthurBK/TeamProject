@@ -2,6 +2,24 @@ class BikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @bikes = Bike.all
+    # @bikes = Bike.where(address: params[:city])
+    if (params[:checkin] != nil && params[:checkout] != nil)
+
+
+      Booking.all.each do |booking|
+        if (Date.parse(params[:checkin]) >= Date.parse(booking.checkin)) && (Date.parse(params[:checkin]) <= Date.parse(booking.checkout))
+          @bikes = @bikes - [Bike.find(booking.bike_id)]
+        elsif  (Date.parse(params[:checkout]) >= Date.parse(booking.checkin)) && (Date.parse(params[:checkout]) <= Date.parse(booking.checkout))
+          @bikes = @bikes - [Bike.find(booking.bike_id)]
+        elsif Date.parse(params[:checkout]) - Date.parse(params[:checkin]) > Date.parse(booking.checkout) - Date.parse(booking.checkin)
+          @bikes = @bikes - [Bike.find(booking.bike_id)]
+        end
+      end
+
+    end
+
+
+
     # byebug
     @markers = Gmaps4rails.build_markers(@bikes) do |bike, marker|
       marker.lat bike.latitude
