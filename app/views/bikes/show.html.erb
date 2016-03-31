@@ -29,19 +29,23 @@
 
     <div class="container-show col-xs-12 col-sm-4 col-offset-1 text-center">
       <h3>Book this <%= @bike.bike_type %></h3><br>
-      <%= simple_form_for(Booking.new) do |f| %>
+
+      <div id="sandbox-container">
+        <%= simple_form_for(Booking.new) do |f| %>
         <%= f.error_notification %>
 
-        <%= f.input :checkin %>
-        <%= f.input :checkout %>
+        <%= f.input :checkin, :input_html => { :placeholder => "Choose your date", :class => "form-control", :data => {:provide => "datepicker"} }%>
+        <%= f.input :checkout, :input_html => { :placeholder => "Choose your date", :class => "form-control", :data => {:provide => "datepicker"} }%>
         <%= f.input :bike, :as => :hidden%>
 
         <%= f.button :submit, class: "btn btn-danger", value: "Book it", style: "width: 100%" %>
-      <% end %>
+        <% end %>
+      </div>
 
     </div>
   </div>
 </div>
+
 
 
 <div class="wrapper-show">
@@ -67,8 +71,19 @@
   </div>
 </div>
 
-
-
+<%= content_for :after_js do %>
+  <%= javascript_tag do %>
+    $(document).ready(function(){
+      $('#sandbox-container input').datepicker({
+        format: "dd/mm/yyyy",
+        weekStart: 1,
+        autoclose: true,
+        calendarWeeks: true,
+        datesDisabled: ['03/06/2016', '03/21/2016']
+      });
+    });
+  <% end %>
+<% end %>
 
 
 

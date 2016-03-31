@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap-datepicker-rails'
 gem 'devise'
 gem 'figaro'
 gem 'cloudinary'
