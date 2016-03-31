@@ -1,12 +1,25 @@
 class BikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  # private
   def index
-    @bikes = Bike.all
+    @bikes = Bike.where(address: params[:city])
     # byebug
+    # if Booking.all.each do |booking|
+    # booking.checkin < params[:ckeckin]
+    # @bikes - booking.bike_id
+    # elsif
+    # booking.checkout > params[:ckeckout]
+    # @bikes - booking.bike_id
+    # end
+    #
     @markers = Gmaps4rails.build_markers(@bikes) do |bike, marker|
       marker.lat bike.latitude
       marker.lng bike.longitude
     end
+
+
+
+
   end
 
   def show
