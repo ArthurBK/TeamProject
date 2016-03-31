@@ -29,12 +29,11 @@
 
     <div class="container-show col-xs-12 col-sm-4 col-offset-1 text-center">
       <h3>Book this <%= @bike.bike_type %></h3><br>
-      <%= simple_form_for(Booking.new) do |f| %>
+      <%= simple_form_for [@bike, @booking] do |f| %>
         <%= f.error_notification %>
 
         <%= f.input :checkin %>
         <%= f.input :checkout %>
-        <%= f.input :bike, :as => :hidden%>
 
         <%= f.button :submit, class: "btn btn-danger", value: "Book it", style: "width: 100%" %>
       <% end %>

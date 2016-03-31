@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   resources :bikes, only: [:index, :show, :new, :create]
-  resources :bookings
+
+  resources :bikes do
+      resources :bookings
+  end
 
   resources :profiles do
     resources :bikes, shallow: true
