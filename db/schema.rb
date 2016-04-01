@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160331122943) do
     t.string   "displacement"
     t.string   "brand"
     t.string   "bike_type"
+    t.integer  "rate"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "description"

@@ -12,7 +12,8 @@ class Bike < ActiveRecord::Base
     }
   validates :displacement, presence: true
   validates :brand, presence: true
-  validates :bike_type, presence: true
+  validates :bike_type, presence: true, inclusion: { in: %w(Moped Scooter Motorcycle), message: "%{value} is not a valid category" }
+  validates :address, presence: { message: "Address must be in valid format" }
   # validates :rating, numericality: { only_integer: true,
   #   less_than_or_equal_to: 5,
   #   greater_than_or_equal_to: 0

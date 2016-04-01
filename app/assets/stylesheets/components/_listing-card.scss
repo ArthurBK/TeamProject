@@ -22,15 +22,25 @@
 }
 .listing-card-description {
   position: absolute;
-  bottom: 10px;
+  bottom: 0px;
   left: 10px;
 }
 .listing-card-description h2 {
-  font-size: 24px;
+  font-size: 20px;
 }
-.listing-card-description p {
-  font-size: 13px;
-  }
+
+.listing-card-rate {
+  position: absolute;
+  bottom: 20px;
+  right: 0px;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: RGBA(66, 67, 67, 0.6);
+  color: white;
+  padding: 2px;
+  border-radius: 5px;
+}
+
 .listing-card-link {
   position: absolute;
   top: 0;
