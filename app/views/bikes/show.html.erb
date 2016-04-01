@@ -69,6 +69,22 @@
     </div>
   </div>
 </div>
+<div class="container container-review">
+  <div id="reviews">
+
+    <% if @bike.reviews.blank? %>
+      <h3>Be the first to leave a review for <%= @bike.brand %> <%= @bike.model %></h3>
+    <% else %>
+      <h3>Reviews</h3>
+      <% @bike.reviews.each do |review| %>
+        <%= render 'reviews/show', review: review %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= render 'reviews/form', bike: @bike, review: @review %>
+</div>
+
 
 <%= content_for :after_js do %>
   <%= javascript_tag do %>

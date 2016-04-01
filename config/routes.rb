@@ -6,12 +6,17 @@ Rails.application.routes.draw do
   resources :bikes, only: [:index, :show, :new, :create]
 
   resources :bikes do
+    resources :reviews, only: :create
+  end
+
+  resources :bikes do
       resources :bookings
   end
 
   resources :profiles do
     resources :bikes, shallow: true
   end
+
 
   # resources :reviews
   # resources :roles
