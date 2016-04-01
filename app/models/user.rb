@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy
   has_many :bikes, dependent: :destroy
   has_many :bookings
+  has_many :reviews
+
 
   validates :email, presence: true, format: {
    with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,

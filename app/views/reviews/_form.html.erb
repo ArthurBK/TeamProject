@@ -1,0 +1,6 @@
+<%= simple_form_for([ @bike, @review ], remote: true) do |form| %>
+  <%= form.input :rating, collection: 0..5 %>
+  <%= form.input :description %>
+  <%= form.button :submit %>
+<% end %>
+

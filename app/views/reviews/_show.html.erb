@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2 text-center">
+      <%= cl_image_tag review.user.profile.photo, width: 50, height: 50, crop: :fill, class: "avatar-bordered dropdown-toggle"%><br>
+      <%= review.user.profile.name %>
+    </div>
+    <div class="col-sm-4">
+      <ul class="list-inline">
+        <li style="color: gold">
+          <% (review.rating).times do %>
+          <i class="fa fa-star"></i>
+          <% end %>
+        </li>
+        <li>
+          <% (5 - (review.rating)).times do %>
+          <i class="fa fa-star-o"></i>
+          <% end %>
+        </li>
+      </ul>
+      <p><%= review.description %></p>
+    </div>
+  </div>
+</div>
