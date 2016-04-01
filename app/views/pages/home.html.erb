@@ -150,6 +150,7 @@
     google.maps.event.addDomListener(window, 'load', function() {
       initializeAutocomplete('pac-input');
     });
+
         </script>
 
   <%= javascript_tag do %>
@@ -170,5 +171,5 @@
 
 
 <script
-src="https://maps.googleapis.com/maps/api/js?&libraries=places&key=AIzaSyDozpHJGL-859-nKBH0YAx3org0gMRGRdQ"
+src="https://maps.googleapis.com/maps/api/js?&libraries=places&key=<%= ENV['GOOGLE_API_BROWSER_KEY'] %>"
 ></script>
