@@ -6,12 +6,11 @@
 
     <div class="wrapper-form">
 
-
       <form action="bikes#index" class="form-inline text-center form">
-        <input type="text" class="form-control input-lg" placeholder="City"name="city" required>
+        <input id ="pac-input" type="text" class="form-control input-lg" placeholder="City"name="city" required>
 
-          <input type="text" class="form-control input-lg datebnb" data-provide="datepicker" placeholder="Check in" name="checkin">
-          <input type="text" class="form-control input-lg datebnb" data-provide="datepicker" placeholder="Check out" name="checkout">
+        <input type="text" class="form-control input-lg datebnb" data-provide="datepicker" placeholder="Check in" name="checkin">
+        <input type="text" class="form-control input-lg datebnb" data-provide="datepicker" placeholder="Check out" name="checkout">
 
         <select class="form-control input-lg" placeholder="Type" name="type">
           <option value="1">Type</option>
@@ -121,17 +120,54 @@
 
 </div>
 
+<%= content_for :after_js do %>
+
+
+  <script type="text/javascript">
+    function initializeAutocomplete(id) {
+      var element = document.getElementById(id);
+      if (element) {
+        var autocomplete = new google.maps.places.Autocomplete(element, { types: ['geocode'] });
+        google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+      }
+    }
+
+    function onPlaceChanged() {
+      var place = this.getPlace();
+
+      // console.log(place);  // Uncomment this line to view the full object returned by Google API.
+
+      for (var i in place.address_components) {
+        var component = place.address_components[i];
+        for (var j in component.types) {  // Some types are ["country", "political"]
+          var type_element = document.getElementById(component.types[j]);
+          if (type_element) {
+            type_element.value = component.long_name;
+          }
+        }
+      }
+    }
+
+    google.maps.event.addDomListener(window, 'load', function() {
+      initializeAutocomplete('pac-input');
+    });
+  </script>
+<% end %>
+
 
 <%= content_for :after_js do %>
-  <%= javascript_tag do %>
-    $(document).ready(function(){
-      $('.datebnb').datepicker({
-        format: "dd/mm/yyyy",
-        weekStart: 1,
-        autoclose: true,
-        calendarWeeks: true,
-        datesDisabled: ['03/06/2016', '03/21/2016']
-      });
-    });
-  <% end %>
+<%= javascript_tag do %>
+$(document).ready(function(){
+$('.datebnb').datepicker({
+format: "dd/mm/yyyy",
+weekStart: 1,
+autoclose: true,
+calendarWeeks: true,
+datesDisabled: ['03/06/2016', '03/21/2016']
+});
+});
 <% end %>
+<% end %>
+<script
+src="https://maps.googleapis.com/maps/api/js?&libraries=places&key=AIzaSyDozpHJGL-859-nKBH0YAx3org0gMRGRdQ"
+></script>
