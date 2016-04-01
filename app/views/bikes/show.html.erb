@@ -5,8 +5,10 @@
 <div class="container-show-origin">
   <div class="row">
     <div class="col-xs-12 col-sm-3 col-offset-1 text-center flat-row">
-      <h4>OWNER AVATAR</h4>
-      <p>OWNER NAME</p>
+      <h4>OWNER</h4>
+      <%= link_to profile_path(@bike.user.profile) do %>
+      <%= cl_image_tag @bike.user.profile.photo, width: 150, height: 150, radius: "max", crop: :fill %>
+      <% end %>
     </div>
     <div class="col-xs-12 col-sm-4 col-offset-1">
       <h3><%= @bike.brand %></h3>
@@ -28,7 +30,8 @@
     </div>
 
     <div class="container-show col-xs-12 col-sm-4 col-offset-1 text-center">
-      <h3>Book this <%= @bike.bike_type %></h3><br>
+      <h3>Book this <%= @bike.bike_type %></h3>
+      <h4><%= @bike.rate %> € / Day</h4>
 
       <div id="sandbox-container">
         <%= simple_form_for [@bike, @booking] do |f| %>
