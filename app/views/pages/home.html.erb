@@ -122,7 +122,6 @@
 
 <%= content_for :after_js do %>
 
-
   <script type="text/javascript">
     function initializeAutocomplete(id) {
       var element = document.getElementById(id);
@@ -151,23 +150,25 @@
     google.maps.event.addDomListener(window, 'load', function() {
       initializeAutocomplete('pac-input');
     });
-  </script>
+        </script>
+
+  <%= javascript_tag do %>
+    $(document).ready(function(){
+      $('.datebnb').datepicker({
+        format: "dd/mm/yyyy",
+        weekStart: 1,
+        todayHighlight: true,
+        startDate: new Date(),
+        autoclose: true,
+        calendarWeeks: true,
+        datesDisabled: ['03/06/2016', '03/21/2016']
+      });
+    });
+  <% end %>
 <% end %>
 
 
-<%= content_for :after_js do %>
-<%= javascript_tag do %>
-$(document).ready(function(){
-$('.datebnb').datepicker({
-format: "dd/mm/yyyy",
-weekStart: 1,
-autoclose: true,
-calendarWeeks: true,
-datesDisabled: ['03/06/2016', '03/21/2016']
-});
-});
-<% end %>
-<% end %>
+
 <script
 src="https://maps.googleapis.com/maps/api/js?&libraries=places&key=AIzaSyDozpHJGL-859-nKBH0YAx3org0gMRGRdQ"
 ></script>

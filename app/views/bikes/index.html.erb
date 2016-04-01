@@ -7,13 +7,16 @@
         <div class="listings-container">
           <div class="row">
             <% @bikes.each do |bike| %>
-            <div class="col-sm-12 row-space-2 col-md-6">
+            <div class="col-xs-12 col-sm-6 row-space-2">
               <div class="listing-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path bike.photo %>);">
                 <div class="listing-card-category"><%= bike.bike_type %></div>
                 <div class="listing-card-description">
                   <h2><%= bike.brand %> <%= bike.model %></h2>
                 </div>
-                <img class="listing-card-user avatar" src="user.jpg">
+                <div class="listing-card-rate">
+                  <%= bike.rate %> €
+                </div>
+                <%= cl_image_tag bike.user.profile.photo, width: 30, height: 30, crop: :fill, class: "listing-card-user avatar" %>
                 <%= link_to '', bike_path(bike), class: 'listing-card-link'%>
               </div>
             </div>
