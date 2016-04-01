@@ -7,7 +7,7 @@ class CreateBikes < ActiveRecord::Migration
       t.string :displacement
       t.string :brand
       t.string :bike_type
-
+      t.integer :rate
 
       t.timestamps null: false
     end
