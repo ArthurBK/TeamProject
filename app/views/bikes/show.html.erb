@@ -75,7 +75,7 @@
 <div class="container container-review">
   <div id="reviews">
 
-    <% if @bike.reviews.blank? %>
+    <% if @bike.reviews.exists? == false %>
       <h3>Be the first to leave a review for <%= @bike.brand %> <%= @bike.model %></h3>
     <% else %>
       <h3>Reviews</h3>
